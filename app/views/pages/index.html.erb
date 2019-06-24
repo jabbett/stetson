@@ -1,0 +1,14 @@
+<div class="stetson-page-meta">
+  <div class="container">
+    <h1>All pages</h1>
+  </div>
+</div>
+
+<div class="container">
+  <ul class="toc">
+  <% @pages.each do |page| %>
+    <li><%= link_to page.title, page %></li>
+  <% end %>
+    <li><em><%= link_to 'Create a new page', new_page_path %></em></li>
+  </ul>
+</div>

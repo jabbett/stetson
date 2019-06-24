@@ -1,0 +1,35 @@
+<div class="stetson-page-meta">
+  <div class="container">
+    <h1>Configuration</h1>
+  </div>
+</div>
+
+<div class="container">
+  <%= form_with(model: @stetson_config, local: true, html: { autocomplete: 'off' }) do |form| %>
+    <% if @stetson_config.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@stetson_config.errors.count, "error") %> prohibited this configuration from being saved:</h2>
+
+        <ul>
+        <% @stetson_config.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :site_name %>
+      <%= form.text_field :site_name, placeholder: 'Site name', class: 'form-control form-control-lg' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :home_page_id %>
+      <%= form.collection_select :home_page_id, @pages, :id, :title, {}, { class: 'form-control form-control-lg' } %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

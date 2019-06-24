@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site_name: 
+  home_page: one
+
+two:
+  site_name: 
+  home_page: two

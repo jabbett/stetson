@@ -1,0 +1,39 @@
+<% if @page.parent.present? %>
+<div class="stetson-parent">
+  <div class="container">
+    <%= link_to "#{@page.parent.title}".html_safe, @page.parent %>
+  </div>
+</div>
+<% end %>
+<div class="stetson-page-meta">
+  <div class="container">
+    <div class="meta">
+      <h1><%= @page.title %></h1>
+      <div>
+        Last updated <%= local_time_ago(@page.updated_at) %> &middot; 
+        Created <%= local_time_ago(@page.created_at) %>  
+      </div>
+    </div>
+    <div class="actions">
+      <%= link_to icon('delete', classes: 'zmdi-hc-2x'), page_path(@page), method: :delete, data: { confirm: "Really delete page '#{@page.title}'?" } %>
+      <%= link_to icon('file-plus', classes: 'zmdi-hc-2x'), new_page_path %>
+      <%= link_to icon('edit', classes: 'zmdi-hc-2x'), edit_page_path(@page) %>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <% if @child_pages.any? %>
+  <nav class="stetson-children">
+    <ul>
+      <% @child_pages.each do |page| %>
+      <li><%= link_to page.title, page %></li>
+      <% end %>
+      <!-- <li><em><%= link_to "Create a new page under #{@page.title}", new_page_path %></em></li> -->
+    </ul>
+  </nav>
+  <% end %>
+  <article class="stetson">
+    <%= @markdown.render(@page.body).html_safe %>
+  </article>
+</main>
