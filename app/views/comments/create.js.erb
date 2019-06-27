@@ -1,0 +1,5 @@
+var $commentList = $(".comment-list"),
+    $form = $(".comments form");
+
+$commentList.append("<%= escape_javascript(render partial: 'comments/comment', locals: { comment: @comment }) %>");
+$form[0].reset();

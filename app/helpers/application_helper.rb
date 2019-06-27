@@ -1,5 +1,5 @@
 module ApplicationHelper
   def icon(name, classes: nil)
-    "<i class='zmdi zmdi-#{name} #{classes}'></i>".html_safe
+    image_tag "feather/#{name}.svg", class: "icon #{classes}"
   end
 end

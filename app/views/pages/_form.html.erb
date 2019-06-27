@@ -13,27 +13,29 @@
     <% end %>
 
     <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control form-control-lg' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.text_area :body, class: 'form-control markdown', rows: 20 %>
+    </div>
+
+    <hr>
+
+    <div class="field">
       <%= form.label :parent_id %>
       <%= form.collection_select :parent_id, @pages, :id, :title, { prompt: 'None (a top-level page)' }, { class: 'form-control' } %>
     </div>
 
-    <hr>
-
-    <div class="field">
-      <%= form.text_field :title, placeholder: 'Page title', class: 'form-control form-control-lg' %>
-    </div>
-
-    <div class="field">
-      <%= form.text_area :body, class: 'form-control', rows: 20 %>
-    </div>
-
-    <hr>
-
-    <div class="field">
-      <%= form.label :slug %>
-      <%= form.text_field :slug, class: 'form-control' %>
-      <div class="form-text">If blank, a slug will be auto-generated</div>
-    </div>
+    <% if page.persisted? %>
+      <div class="field">
+        <%= form.label :slug %>
+        <%= form.text_field :slug, class: 'form-control' %>
+        <div class="form-text">The slug is used to form a friendly URL for this page. You can modify it if you're unhappy with the auto-generated slug.</div>
+      </div>
+    <% end %>
 
     <div class="actions">
       <%= form.submit class: 'btn btn-primary' %>

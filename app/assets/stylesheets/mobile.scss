@@ -1,0 +1,36 @@
+@media (max-width: 640px) {
+  main.container {
+    display: block;
+
+    .stetson-children {
+      width: auto;
+      border-right: none;
+      margin-right: 0;
+      padding-right: 0;
+      border-bottom: 1px dotted #ccc;
+      margin-bottom: 2rem;
+      ul {
+        margin-left: 1.2rem;
+      }
+    }
+
+    aside.comments {
+      width: auto;
+      margin-left: 0;
+      margin-top: 3rem;
+    }
+  }
+
+  article.stetson {
+    font-size: 10pt;
+  }
+
+  .stetson-page-meta .container {
+    display: block;
+    .actions {
+      width: auto;
+      text-align: left;
+      margin-top: 1rem;
+    }
+  }
+}

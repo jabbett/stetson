@@ -1,0 +1,5 @@
+@media print {
+  nav#primary a, .stetson-page-meta .actions, .comments, footer {
+    display: none !important;
+  }
+}

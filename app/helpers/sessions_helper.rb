@@ -65,7 +65,7 @@ module SessionsHelper
     # exceptions, which may be accessed without authentication. Add additional
     # names to reflect the public controllers in your app.
     def authenticate_user_excluded?
-      %w[stetson_configs pages sessions].include?(controller_name)
+      %w[public sessions].include?(controller_name)
     end
 
     # When the user logs out, we tell Auth0 to log the user out on their end,

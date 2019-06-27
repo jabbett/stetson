@@ -31,3 +31,5 @@
 
 # Ignore simplecov code coverage output
 coverage
+
+.DS_Store

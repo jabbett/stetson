@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   get 'auth/oauth2/callback' => 'sessions#callback'
   get 'auth/failure' => 'sessions#failure'
   get 'logout' => 'sessions#logout'
-  get 'change_password' => 'sessions#change_password'
-
-  get 'secure' => 'secure#show'
-  get 'user' => 'users#show'
 
   resources :pages
   resources :stetson_configs, only: [:edit, :update]
+  resources :comments, only: [:create, :destroy] do
+    member do
+      put :resolve
+      put :unresolve
+    end
+  end
 
-  root 'pages#show', id: StetsonConfig.first.home_page_id
+  root 'public#index'
 end
