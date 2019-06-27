@@ -14,4 +14,5 @@
 //= require activestorage
 //= require local-time
 //= require jquery
+//= require rails.validations
 //= require_tree .

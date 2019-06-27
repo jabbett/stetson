@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   # GET /pages/1
   def show
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true, fenced_code_blocks: true, footnotes: true)
+    @markdown = Redcarpet::Markdown.new(StetsonRenderer, tables: true, fenced_code_blocks: true, footnotes: true)
     @child_pages = Page.where(parent: @page.id).order(:title)
     @comments = Comment.where(page: @page, resolved_at: nil).order(:created_at)
   end

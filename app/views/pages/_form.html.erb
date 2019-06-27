@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_with(model: page, local: true, html: { autocomplete: 'off' }) do |form| %>
+  <%= form_with(model: page, validate: true, local: true, html: { autocomplete: 'off' }) do |form| %>
     <% if page.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>

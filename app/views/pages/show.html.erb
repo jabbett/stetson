@@ -1,22 +1,4 @@
-<% if @page.parent.present? %>
-<div class="stetson-parent">
-  <div class="container">
-    <%= link_to "#{@page.parent.title}".html_safe, @page.parent %>
-  </div>
-</div>
-<% end %>
-<div class="stetson-page-meta">
-  <div class="container">
-    <div class="meta">
-      <h1><%= @page.title %></h1>
-    </div>
-    <div class="actions">
-      <%= link_to icon('trash-2'), page_path(@page), method: :delete, data: { confirm: "Really delete page '#{@page.title}'?" } %>
-      <%= link_to icon('file-plus'), new_page_path(parent_id: @page.id) %>
-      <%= link_to icon('edit-2'), edit_page_path(@page) %>
-    </div>
-  </div>
-</div>
+<%= render 'pages/header', page: @page %>
 
 <main class="container">
   <% if @child_pages.any? %>
@@ -35,7 +17,8 @@
     <div class="provenance">
       <% if @page.updater %>
         Last updated <%= local_time_ago(@page.updated_at) %>
-        by <%= @page.updater.email %><br />
+        by <%= @page.updater.email %> &middot;
+        <%= link_to pluralize(@page.versions.count, 'version'), page_versions_path(@page) %><br />
       <% end %>
       Created <%= local_time_ago(@page.created_at) %>  
       <% if @page.creator %>by <%= @page.creator.email %><% end %>

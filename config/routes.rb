@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get 'auth/failure' => 'sessions#failure'
   get 'logout' => 'sessions#logout'
 
-  resources :pages
   resources :stetson_configs, only: [:edit, :update]
+  resources :pages do
+    resources :versions, only: [:index, :show]
+  end
   resources :comments, only: [:create, :destroy] do
     member do
       put :resolve
