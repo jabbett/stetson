@@ -1,0 +1,13 @@
+<% if comment.resolved? %>
+  <div class="comment resolved" data-comment-id="<%= comment.id %>">
+    Comment resolved. <%= link_to 'Undo?', unresolve_comment_path(comment), method: :put, remote: true %>
+  </div>
+<% else %>
+  <div class="comment" data-comment-id="<%= comment.id %>">
+    <div class="author"><%= comment.creator.email %></div>
+    <div class="content"><%= comment.body %></div>
+    <div class="actions">
+      Posted <%= local_time_ago(comment.created_at) %><%= link_to(icon('trash'), comment, method: :delete, remote: true, data: { confirm: 'Are you sure?' }) if comment.creator == current_user %><%= link_to icon('check'), resolve_comment_path(comment), method: :put, remote: true %>
+    </div>
+  </div>
+<% end %>

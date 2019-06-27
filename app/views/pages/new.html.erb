@@ -1,6 +1,10 @@
 <div class="stetson-page-meta">
   <div class="container">
-    <h1>New Page</h1>
+    <% if @page.parent %>
+      <h1>New page within <em><%= @page.parent.title %></em></h1>
+    <% else %>
+      <h1>New top-level page</h1>
+    <% end %>
   </div>
 </div>
 

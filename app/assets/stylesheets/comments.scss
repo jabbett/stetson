@@ -1,0 +1,44 @@
+aside.comments {
+  width: 15rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10pt;
+  margin-left: 3rem;
+  line-height: 1.3;
+
+  .comment-list:not(:empty) {
+    margin-bottom: 2rem;
+  }
+
+  .comment + .comment {
+    margin-top: 1rem;
+    border-top: 1px dotted #ccc;
+    padding-top: 1rem;
+  }
+
+  .author, .actions {
+    color: #777;
+  }
+
+  .content {
+    font-family: 'Merriweather', serif;
+    white-space: pre-line;
+    margin: 0.5rem 0;
+  }
+
+  .actions {
+    a {
+      margin-left: 0.45rem;
+    }
+    img {
+      height: 1em;
+      vertical-align: -2px;
+    }
+  }
+
+  form {
+    textarea { font-family: Merriweather, serif; }
+    textarea, .btn { font-size: 10pt; }
+    .actions { margin-top: 0; }
+    .btn { padding: 0.5rem 1.25rem; }
+  }
+}

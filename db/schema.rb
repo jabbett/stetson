@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_163130) do
+ActiveRecord::Schema.define(version: 2019_06_25_134458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "page_id"
+    t.uuid "creator_id"
+    t.string "body"
+    t.datetime "resolved_at"
+    t.uuid "resolved_by_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_comments_on_creator_id"
+    t.index ["page_id"], name: "index_comments_on_page_id"
+    t.index ["resolved_by_id"], name: "index_comments_on_resolved_by_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -34,7 +47,11 @@ ActiveRecord::Schema.define(version: 2019_06_24_163130) do
     t.uuid "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "creator_id"
+    t.uuid "updater_id"
+    t.index ["creator_id"], name: "index_pages_on_creator_id"
     t.index ["parent_id"], name: "index_pages_on_parent_id"
+    t.index ["updater_id"], name: "index_pages_on_updater_id"
   end
 
   create_table "stetson_configs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -53,6 +70,11 @@ ActiveRecord::Schema.define(version: 2019_06_24_163130) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "pages"
+  add_foreign_key "comments", "users", column: "creator_id"
+  add_foreign_key "comments", "users", column: "resolved_by_id"
   add_foreign_key "pages", "pages", column: "parent_id"
+  add_foreign_key "pages", "users", column: "creator_id"
+  add_foreign_key "pages", "users", column: "updater_id"
   add_foreign_key "stetson_configs", "pages", column: "home_page_id"
 end
