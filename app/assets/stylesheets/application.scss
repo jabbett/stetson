@@ -21,6 +21,10 @@ em {
   font-style: italic;
 }
 
+.hide {
+  display: none !important;
+}
+
 .tag {
   display: inline-block;
   background-color: #666;
@@ -102,12 +106,9 @@ footer {
   font-family: 'Open Sans';
   font-size: 10pt;
 
-  &:empty {
-    display: none;
-  }
-
-  &.success { background-color: lightgreen; color: green; }
-  &.danger { background-color: lightpink; color: red; }
+  &:empty { display: none; }
+  &.success { color: #155724; background-color: #d4edda; }
+  &.danger { color: #721c24; background-color: #f8d7da; }
 }
 
 .stetson-children, ul.toc {

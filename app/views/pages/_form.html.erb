@@ -1,5 +1,8 @@
 <div class="container">
-  <%= form_with(model: page, validate: true, local: true, html: { autocomplete: 'off' }) do |form| %>
+  <div class="restore-message hide">
+    You made changes to this content that you did not save. Those changes have been restored below. <a href="javascript:void(0);" class="btn-form-discard">Discard these changes?</a>
+  </div>
+  <%= form_with(model: page, validate: true, local: true, html: { id: 'form-page', autocomplete: 'off' }) do |form| %>
     <% if page.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -19,7 +22,67 @@
 
     <div class="field">
       <%= form.label :body %>
-      <%= form.text_area :body, class: 'form-control markdown', rows: 20 %>
+      <div class="editor">
+        <div class="field">
+          <%= form.text_area :body, class: 'form-control markdown', rows: 25 %>    
+        </div>
+        <div class="help">
+          <em>Stetson uses <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Markdown syntax</a> to make writing pages fast and reliable. The basics are easy.</em>
+          <table>
+            <tbody>
+              <tr>
+                <th>Headings</th>
+                <td># Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6</td>
+              </tr>
+              <tr>
+                <th>Italics</th>
+                <td>*content*</td>
+              </tr>
+              <tr>
+                <th>Bold</th>
+                <td>**strong**</td>
+              </tr>
+              <tr>
+                <th>External link</th>
+                <td>[Text](http://link)</td>
+              </tr>
+              <tr>
+                <th>Internal link</th>
+                <td>[[Page Name]]</td>
+              </tr>
+              <tr>
+                <th>Bulleted list</th>
+                <td>* first
+* second</td>
+              </tr>
+              <tr>
+                <th>Numbered list</th>
+                <td>1. first
+2. second</td>
+              </tr>
+              <tr>
+                <th>Blockquote</th>
+                <td>&gt; Text</td>
+              </tr>
+              <tr>
+                <th>Code</th>
+                <td>`code`</td>
+              </tr>
+              <tr>
+                <th>Code block</th>
+                <td>```
+code
+```</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <hr>
