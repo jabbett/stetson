@@ -14,4 +14,20 @@
 //= require activestorage
 //= require local-time
 //= require jquery
+//= require rails.validations
 //= require_tree .
+
+var sisyphus;
+
+$(function() {
+  sisyphus = $("#form-page").sisyphus({
+    onRestore: function() {
+      $(".restore-message").removeClass("hide");
+    }
+  });
+
+  $(".btn-form-discard").click(function() {
+    sisyphus.manuallyReleaseData();
+    window.location.reload();
+  });
+});

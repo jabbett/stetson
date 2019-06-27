@@ -3,6 +3,8 @@
  *= require_self
  *= require pages
  *= require comments
+ *= require versions
+ *= require rouge
  *= require mobile
  *= require print
  */
@@ -17,6 +19,25 @@ strong {
 
 em {
   font-style: italic;
+}
+
+.hide {
+  display: none !important;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #666;
+  color: white;
+  font-size: 65%;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  width: 4rem;
+  text-align: center;
+}
+
+.tag-latest {
+  background-color: #006600;
 }
 
 .container {
@@ -85,12 +106,9 @@ footer {
   font-family: 'Open Sans';
   font-size: 10pt;
 
-  &:empty {
-    display: none;
-  }
-
-  &.success { background-color: lightgreen; color: green; }
-  &.danger { background-color: lightpink; color: red; }
+  &:empty { display: none; }
+  &.success { color: #155724; background-color: #d4edda; }
+  &.danger { color: #721c24; background-color: #f8d7da; }
 }
 
 .stetson-children, ul.toc {
@@ -119,6 +137,7 @@ ul.toc, article.stetson ul, .stetson-children ul {
   margin-bottom: 2rem;
 
   h1 { font-size: 2.5em; }
+  h1 a { color: black !important; text-decoration: none; }
 
   .container { display: flex; align-items: center; }
 
@@ -169,13 +188,17 @@ form {
     border: 1px solid #ccc;
   }
 
-  .form-text {
+  .form-text, .message {
     font-size: 10pt;
     color: #777;
   }
 
-  .form-control + .form-text {
+  .form-control + .form-text, .form-control + .message {
     margin-top: 0.5rem;
+  }
+
+  .field_with_errors .message {
+    color: #cc0000;
   }
 
   .actions {

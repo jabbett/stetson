@@ -16,20 +16,22 @@ gem 'uglifier', '>= 1.3.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
+# Client Side Validations made easy for Ruby on Rails. https://github.com/DavyJonesLocker/client_side_validations
+gem 'client_side_validations'
+# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord. http://norman.github.io/friendly_id/
+gem 'friendly_id', '~> 5.2.4'
+# Rails engine for cache-friendly, client-side local time. https://github.com/basecamp/local_time
+gem 'local_time'
 # OmniAuth is a flexible authentication system utilizing Rack middleware. https://omniauth.io
 gem 'omniauth', '~> 1.6.1'
 # OmniAuth strategy for the Auth0 platform. https://github.com/auth0/omniauth-auth0
 gem 'omniauth-auth0', '~> 2.0.0'
-
+# Track changes to your rails models. https://github.com/paper-trail-gem/paper_trail
+gem 'paper_trail'
 # The safe Markdown parser, reloaded. https://github.com/vmg/redcarpet
 gem 'redcarpet'
-
-# Rails engine for cache-friendly, client-side local time. https://github.com/basecamp/local_time
-gem 'local_time'
-
-# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord. http://norman.github.io/friendly_id/
-gem 'friendly_id', '~> 5.2.4'
+# A pure-ruby code highlighter that is compatible with pygments. http://rouge.jneen.net/
+gem 'rouge'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

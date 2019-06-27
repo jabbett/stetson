@@ -1,0 +1,14 @@
+<%= render 'pages/header', page: @page_at_version %>
+
+<div class="version-metadata">
+  <div class="container">
+    <%= link_to 'Versions', page_versions_path(@page) %> &rsaquo;
+    Version as of <%= local_time(@version.created_at) %>
+  </div>
+</div>
+
+<main class="container">
+  <article class="stetson">
+    <%= wiki_linkify(@markdown.render(@page_at_version.body)) %>
+  </article>
+</main>

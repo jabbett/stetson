@@ -1,0 +1,44 @@
+<%= render 'pages/header', page: @page %>
+
+<div class="container versions">
+  <h2><%= pluralize(@versions.count, 'version') %></h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Version</th>
+        <th></th>
+        <th>Action</th>
+        <th>Changes to</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @versions.each do |version| %>
+        <% user = @version_users.select { |u| u.id == version.whodunnit }.first %>
+        <tr>
+          <td>
+            <%= link_to local_time(version.created_at), page_version_path(@page, version) %>
+            <div class="text-minor"><%= local_time_ago(version.created_at) %></div>
+          </td>
+          <td>
+            <% if @versions.first == version %>
+              <span class="tag">Original</span>
+            <% end %>
+            <% if @versions.last == version %>
+              <span class="tag tag-latest">Latest</span>
+            <% end %>
+          </td>
+          <td>
+            <%= "Page #{version.event}d by" %>
+            <% if user %>
+              <%= user.email %>
+            <% else %>
+              &ndash;
+            <% end %>
+          </td>
+          <td><%= humanize_changeset(version.changeset) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
