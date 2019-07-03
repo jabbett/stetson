@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :stetson_configs, only: [:edit, :update]
   resources :pages do
     resources :versions, only: [:index, :show]
+    resources :attachments, only: [:create, :destroy]
   end
   resources :comments, only: [:create, :destroy] do
     member do

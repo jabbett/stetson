@@ -1,0 +1,8 @@
+<tr data-attachment-id="<%= attachment.id %>">
+  <td><%= icon('paperclip') %></td>
+  <td><%= link_to attachment.filename, attachment %></td>
+  <td><%= number_to_human_size(attachment.blob.byte_size) %></td>
+  <td>
+    <%= link_to(icon('x'), page_attachment_path(attachment.record, attachment.id), method: :delete, remote: true, class: 'btn-delete', data: { confirm: "Really delete '#{attachment.filename}'?" }) %>
+  </td>
+</tr>

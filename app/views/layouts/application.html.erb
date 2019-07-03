@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= "#{@page.title} | " if @page.title.present? %> <%= StetsonConfig.first.site_name %></title>
+    <title><%= "#{@page.title} | " if @page.present? && @page.title.present? %> <%= StetsonConfig.first.site_name %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

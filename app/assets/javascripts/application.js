@@ -15,7 +15,7 @@
 //= require local-time
 //= require jquery
 //= require rails.validations
-//= require_tree .
+//= require attachments
 
 var sisyphus;
 

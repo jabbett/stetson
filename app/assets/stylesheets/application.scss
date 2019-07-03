@@ -5,6 +5,7 @@
  *= require comments
  *= require versions
  *= require rouge
+ *= require attachments
  *= require mobile
  *= require print
  */
@@ -19,6 +20,15 @@ strong {
 
 em {
   font-style: italic;
+}
+
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+}
+
+.spin {
+  animation: spin 2000ms linear infinite;
 }
 
 .hide {
@@ -92,7 +102,7 @@ nav#primary {
 
 footer {
   padding: 2rem 0;
-  text-align: center;
+  text-align: right;
   border-top: 1px solid #ddd;
   margin-top: 5rem;
   color: #666;
@@ -147,9 +157,9 @@ ul.toc, article.stetson ul, .stetson-children ul {
   }
   
   .actions {
-    width: 10rem;
+    white-space: nowrap;
     text-align: right;
-    a + a { margin-left: 0.5rem; }
+    > * + * { margin-left: 0.5rem; }
   }
 }
 
