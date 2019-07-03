@@ -1,0 +1,10 @@
+$(".btn-attach").removeClass("hide");
+$(".stetson-page-meta .actions .spin").addClass("hide");
+
+<% if flash[:alert] %>
+  $(".application-notice.danger").html("<%= escape_javascript(flash[:alert]) %>");
+<% else %>
+  var $attachmentTable = $(".attachments table");
+  $attachmentTable.append("<%= escape_javascript(render partial: 'active_storage/attachments/attachment', locals: { attachment: @attachment }) %>");
+  $(".application-notice.success").html("<%= escape_javascript(flash[:notice]) %>");
+<% end %>

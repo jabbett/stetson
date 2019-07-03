@@ -73,6 +73,8 @@ article.stetson {
     padding-left: 1em;
   }
 
+  img { max-width: 100%; }
+
   table {
     width: 100%;
     th, td {
@@ -82,6 +84,9 @@ article.stetson {
       text-align: left;
       font-weight: bold;
       border-bottom: 1px solid #ccc;
+    }
+    tbody tr + tr td {
+      border-top: 1px solid #eee;
     }
   }
 
@@ -103,8 +108,6 @@ article.stetson {
   }
 
   .provenance {
-    // background-color: whitesmoke;
-    // padding: 1rem;
     font-family: 'Open Sans', sans-serif;
     border-top: 3px double #ccc;
     padding-top: 1rem;
@@ -112,4 +115,12 @@ article.stetson {
     margin-top: 6rem;
     font-size: 10pt;
   }
+
+  .attachments + .provenance {
+    margin-top: 2rem;
+  }
+}
+
+#form-attachment {
+  display: none;
 }

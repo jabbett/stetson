@@ -14,6 +14,14 @@
   <article class="stetson">
     <%= wiki_linkify(@markdown.render(@page.body)) %>
 
+    <div class="attachments">
+      <table>
+        <tbody>
+          <%= render @page.attachments %>
+        </tbody>
+      </table>
+    </div>
+    
     <div class="provenance">
       <% if @page.updater %>
         Last updated <%= local_time_ago(@page.updated_at) %>
@@ -29,3 +37,5 @@
     <%= render 'comments/form', comment: Comment.new(page: @page) %>
   </aside>
 </main>
+
+<%= render 'attachments/form', page: @page %>
