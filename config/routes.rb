@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#logout'
 
   resources :stetson_configs, only: [:edit, :update]
+  resources :attachments, only: [:show, :destroy]
   resources :pages do
     resources :versions, only: [:index, :show]
-    resources :attachments, only: [:create, :destroy]
+    resources :attachments, only: [:create]
   end
   resources :comments, only: [:create, :destroy] do
     member do

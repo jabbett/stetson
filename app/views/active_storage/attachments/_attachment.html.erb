@@ -3,6 +3,6 @@
   <td><%= link_to attachment.filename, attachment %></td>
   <td><%= number_to_human_size(attachment.blob.byte_size) %></td>
   <td>
-    <%= link_to(icon('x'), page_attachment_path(attachment.record, attachment.id), method: :delete, remote: true, class: 'btn-delete', data: { confirm: "Really delete '#{attachment.filename}'?" }) %>
+    <%= link_to(icon('x'), attachment_path(attachment.blob_id), method: :delete, remote: true, class: 'btn-delete', data: { confirm: "Really delete '#{attachment.filename}'?" }) %>
   </td>
 </tr>

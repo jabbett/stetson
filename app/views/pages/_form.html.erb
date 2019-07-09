@@ -88,6 +88,8 @@ code
       </div>
     <% end %>
 
+    <%= form.file_field :attachments, multiple: true, direct_upload: true, style: "display:none;" %>
+
     <div class="actions">
       <%= form.submit class: 'btn btn-primary' %>
     </div>

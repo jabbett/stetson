@@ -7,45 +7,24 @@ The elegant wiki for small enterprises
 ## Features
 
 * Thoughtful typography
-* Simple, intuitive navigation and controls
-* Markdown content editing (with support for tables, code blocks, and footnotes)
-* Easy internal linking with ``[[Page Title]]``
 * Simple, nesting hierarchy
+* Intuitive navigation and easy-to-learn controls
+* [Markdown](https://daringfireball.net/projects/markdown/) content editing (with support for tables, syntax-highlighted code blocks, and footnotes)
+* Easy internal linking with ``[[Page Title]]``
 * Configurable site title and home page
+* Authentication fully configurable with [Auth0](https://auth0.com)
+* Full history of each page's edits
+* Resolvable comments
+* Responsive mobile and print styles
+* Browser-based draft storage to avoid losing work
+* File attachments
+* Paste an image from the clipboard and automatically get the right Markdown image tag
 
 ## Anti-features
 
-* No WYSIWYG
-* No plugins or themes
-* No role-based access permissions
-
-## Roadmap
-
-### Version 1
-
-* Domain-based authentication via Auth0
-* Attribute page edits to users
-* Resolvable comments on pages
-* Internal link helper
-* Responsive mobile style
-* Print style
-
-### Version 1.1
-
-* History of page edits
-* Browser-based draft storage to avoid losing work
-* Quick Markdown reference
-* Syntax highlighting of code blocks
-
-### Version 1.2
-
-* Paste an image from the clipboard
-* Attachments, maybe?
-
-### Later
-
-* Export all pages as ZIP of Markdown
-* Auto-generated table of contents based on page's headings?
+* **No WYSIWYG**: just Markdown for simplicity and reliability
+* **No plugins or themes**: good-looking and focused functionality
+* **No role-based access permissions**: any authenticated user can create and edit, in the wiki spirit
 
 ## Getting started
 
