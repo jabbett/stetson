@@ -23,7 +23,7 @@ gem 'friendly_id', '~> 5.2.4'
 # Rails engine for cache-friendly, client-side local time. https://github.com/basecamp/local_time
 gem 'local_time'
 # OmniAuth is a flexible authentication system utilizing Rack middleware. https://omniauth.io
-gem 'omniauth', '~> 1.6.1'
+gem 'omniauth', '~> 1.9.2'
 # OmniAuth strategy for the Auth0 platform. https://github.com/auth0/omniauth-auth0
 gem 'omniauth-auth0', '~> 2.0.0'
 # Track changes to your rails models. https://github.com/paper-trail-gem/paper_trail
